@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "778720037769",
+    "project_id": "instagram-clone-cours-eyecode",
+    "storage_bucket": "instagram-clone-cours-eyecode.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778720037769:android:a8ad8367bb940dd0972f58",
+        "android_client_info": {
+          "package_name": "se.eyecode.instagram_clone_course"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "778720037769-u4bjrfqg1vg1626foeud19oiiu07vj4q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn-YwgUCwNft9GfIEbvdzquPpb78kbY5I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "778720037769-u4bjrfqg1vg1626foeud19oiiu07vj4q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
