@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:instagram_clone_course/firebase_options.dart';
 import 'package:instagram_clone_course/state/auth/constant/constants.dart';
 import 'package:instagram_clone_course/state/auth/models/auth_results.dart';
 import 'package:instagram_clone_course/state/posts/typdefs/user_id.dart';
@@ -55,8 +56,9 @@ class Authenticator {
   }
 
   Future<AuthResult> loginWithGoogle() async {
-    final GoogleSignIn googleSignIn =
-        GoogleSignIn(scopes: [Constants.emailScope]);
+    final GoogleSignIn googleSignIn = GoogleSignIn(
+        clientId: DefaultFirebaseOptions.currentPlatform.iosClientId,
+        scopes: [Constants.emailScope]);
     final signInAccount = await googleSignIn.signIn();
     if (signInAccount == null) {
       return AuthResult.aborted;
