@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:instagram_clone_course/state/auth/backend/authenticator.dart';
 import 'firebase_options.dart';
+
+import 'dart:developer' as devtools show log;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,6 +42,26 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('HomePage'),
       ),
+      body: Column(
+        children: [
+          TextButton(
+              onPressed: () async {
+                final result = await Authenticator().loginWithGoogle();
+                result.log();
+              },
+              child: const Text('Sign In with Google')),
+          TextButton(
+              onPressed: () async {
+                final result = await Authenticator().loginWithFacebook();
+                result.log();
+              },
+              child: const Text('Sign In with Facebook')),
+        ],
+      ),
     );
   }
+}
+
+extension Log on Object {
+  void log() => devtools.log(toString());
 }
