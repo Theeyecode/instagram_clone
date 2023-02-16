@@ -51,9 +51,10 @@ class Authenticator {
         }
         return AuthResult.success;
       }
-    }
-    return AuthResult.failure;
+      return AuthResult.failure;
   }
+    }
+    
 
   Future<AuthResult> loginWithGoogle() async {
     final GoogleSignIn googleSignIn = GoogleSignIn(
