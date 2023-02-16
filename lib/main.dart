@@ -5,9 +5,8 @@ import 'package:instagram_clone_course/state/auth/provider/auth_state_provider.d
 import 'package:instagram_clone_course/state/auth/provider/is_logged_in_provider.dart';
 import 'package:instagram_clone_course/state/providers/is_loading_provider.dart';
 import 'package:instagram_clone_course/views/components/loading/loading_screen.dart';
+import 'package:instagram_clone_course/views/login/login_screen.dart';
 import 'firebase_options.dart';
-
-import 'dart:developer' as devtools show log;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -60,7 +59,7 @@ class App extends ConsumerWidget {
           if (isLoggedIn) {
             return const HomePage();
           } else {
-            return const LoginView();
+            return const LoginScreen();
           }
         },
       ),
@@ -87,37 +86,4 @@ class HomePage extends StatelessWidget {
               child: const Text('lOGOUT'));
         }));
   }
-}
-
-class LoginView extends StatelessWidget {
-  const LoginView({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Consumer(builder: (context, ref, _) {
-      return Scaffold(
-        appBar: AppBar(
-          title: const Text('LoginView'),
-        ),
-        body: Column(
-          children: [
-            TextButton(
-                onPressed: () =>
-                    ref.read(authStateProvider.notifier).loginWithGoogle(),
-                child: const Text('Sign In with Google')),
-            TextButton(
-                onPressed: () =>
-                    ref.read(authStateProvider.notifier).loginWithFacebook(),
-                child: const Text('Sign In with Facebook')),
-          ],
-        ),
-      );
-    });
-  }
-}
-
-extension Log on Object {
-  void log() => devtools.log(toString());
 }
