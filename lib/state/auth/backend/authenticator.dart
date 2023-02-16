@@ -14,6 +14,8 @@ class Authenticator {
   // We don't want the email to be set to a value, we want to get it if its available
   String? get email => FirebaseAuth.instance.currentUser?.email;
 
+  const Authenticator();
+
   //Logout
 
   Future<void> logOut() async {
@@ -52,9 +54,8 @@ class Authenticator {
         return AuthResult.success;
       }
       return AuthResult.failure;
-  }
     }
-    
+  }
 
   Future<AuthResult> loginWithGoogle() async {
     final GoogleSignIn googleSignIn = GoogleSignIn(
