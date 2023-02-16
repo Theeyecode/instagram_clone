@@ -20,7 +20,10 @@ class Authenticator {
 
   Future<void> logOut() async {
     await FirebaseAuth.instance.signOut();
-    await GoogleSignIn().signOut();
+    final GoogleSignIn googleSignIn = GoogleSignIn(
+        clientId: DefaultFirebaseOptions.currentPlatform.iosClientId,
+        scopes: [Constants.emailScope]);
+    await googleSignIn.disconnect();
     await FacebookAuth.instance.logOut();
   }
 

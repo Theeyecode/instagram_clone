@@ -4,12 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:instagram_clone_course/views/components/loading/loading_screen_controller.dart';
 import 'package:instagram_clone_course/views/constants/strings.dart';
 
-import 'dart:developer' as devtools show log;
-
-extension Log on Object {
-  void log() => devtools.log(toString());
-}
-
 class LoadingScreen {
   LoadingScreen._sharedInstance();
   static final LoadingScreen _shared = LoadingScreen._sharedInstance();
@@ -49,7 +43,6 @@ class LoadingScreen {
     }
     final renderBox = context.findRenderObject() as RenderBox;
     final size = renderBox.size;
-    size.log();
 
     final overlay = OverlayEntry(
       builder: (context) {
