@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagram_clone_course/state/auth/backend/authenticator.dart';
+import 'package:instagram_clone_course/state/auth/provider/auth_state_provider.dart';
 import 'package:instagram_clone_course/state/auth/provider/is_logged_in_provider.dart';
 import 'firebase_options.dart';
 
@@ -48,13 +49,18 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('HomePage'),
-      ),
-      body: Column(
-        children: [],
-      ),
-    );
+        appBar: AppBar(
+          title: const Text('HomePage'),
+        ),
+        body: Consumer(builder: (context, ref, child) {
+          return TextButton(
+              onPressed: () async {
+                await ref.read(authStateProvider.notifier).logOut();
+                final x = ref.read(isLoggedInProvider);
+                x.log();
+              },
+              child: const Text('lOGOUT'));
+        }));
   }
 }
 
@@ -65,27 +71,25 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('LoginView'),
-      ),
-      body: Column(
-        children: [
-          TextButton(
-              onPressed: () async {
-                final result = await Authenticator().loginWithGoogle();
-                result.log();
-              },
-              child: const Text('Sign In with Google')),
-          TextButton(
-              onPressed: () async {
-                final result = await Authenticator().loginWithFacebook();
-                result.log();
-              },
-              child: const Text('Sign In with Facebook')),
-        ],
-      ),
-    );
+    return Consumer(builder: (context, ref, _) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('LoginView'),
+        ),
+        body: Column(
+          children: [
+            TextButton(
+                onPressed: () =>
+                    ref.read(authStateProvider.notifier).loginWithGoogle(),
+                child: const Text('Sign In with Google')),
+            TextButton(
+                onPressed: () =>
+                    ref.read(authStateProvider.notifier).loginWithFacebook(),
+                child: const Text('Sign In with Facebook')),
+          ],
+        ),
+      );
+    });
   }
 }
 
