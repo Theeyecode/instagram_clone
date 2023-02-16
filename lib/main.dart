@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:instagram_clone_course/state/auth/backend/authenticator.dart';
 import 'package:instagram_clone_course/state/auth/provider/auth_state_provider.dart';
 import 'package:instagram_clone_course/state/auth/provider/is_logged_in_provider.dart';
+import 'package:instagram_clone_course/views/components/loading/loading_screen.dart';
 import 'firebase_options.dart';
 
 import 'dart:developer' as devtools show log;
@@ -52,12 +52,12 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('HomePage'),
         ),
-        body: Consumer(builder: (context, ref, child) {
+        body: Consumer(builder: (_, ref, child) {
           return TextButton(
               onPressed: () async {
-                await ref.read(authStateProvider.notifier).logOut();
-                final x = ref.read(isLoggedInProvider);
-                x.log();
+                // await ref.read(authStateProvider.notifier).logOut();
+                LoadingScreen.instance()
+                    .show(context: context, text: 'Loading');
               },
               child: const Text('lOGOUT'));
         }));
