@@ -4,6 +4,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagram_clone_course/state/auth/provider/auth_state_provider.dart';
 import 'package:instagram_clone_course/state/auth/provider/is_logged_in_provider.dart';
 import 'package:instagram_clone_course/state/providers/is_loading_provider.dart';
+import 'package:instagram_clone_course/views/components/animations/data_not_found_animation_view.dart';
+import 'package:instagram_clone_course/views/components/animations/empty_content_with_text_animation_view.dart';
 import 'package:instagram_clone_course/views/components/loading/loading_screen.dart';
 import 'package:instagram_clone_course/views/login/login_screen.dart';
 import 'firebase_options.dart';
@@ -77,13 +79,14 @@ class HomePage extends StatelessWidget {
           title: const Text('HomePage'),
         ),
         body: Consumer(builder: (_, ref, child) {
-          return TextButton(
-              onPressed: () async {
-                await ref.read(authStateProvider.notifier).logOut();
-                // LoadingScreen.instance()
-                //     .show(context: context, text: 'Loading');
-              },
-              child: const Text('lOGOUT'));
+          return EmptyContentWithTextAnimationView(
+            text: 'HELLO',
+          );
+          // TextButton(
+          //     onPressed: () async {
+          //       await ref.read(authStateProvider.notifier).logOut();
+          //     },
+          //     child: const Text('lOGOUT'));
         }));
   }
 }

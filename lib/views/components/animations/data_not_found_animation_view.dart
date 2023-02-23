@@ -3,5 +3,7 @@ import 'package:instagram_clone_course/views/components/animations/models/lottie
 
 class DataNotFoundAnimationView extends LottieAnimationView {
   const DataNotFoundAnimationView({super.key})
-      : super(animation: LottieAnimation.dataNotFound);
+      : super(
+          animation: LottieAnimation.dataNotFound,
+        );
 }
