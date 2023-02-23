@@ -79,14 +79,11 @@ class HomePage extends StatelessWidget {
           title: const Text('HomePage'),
         ),
         body: Consumer(builder: (_, ref, child) {
-          return EmptyContentWithTextAnimationView(
-            text: 'HELLO',
-          );
-          // TextButton(
-          //     onPressed: () async {
-          //       await ref.read(authStateProvider.notifier).logOut();
-          //     },
-          //     child: const Text('lOGOUT'));
+          return TextButton(
+              onPressed: () async {
+                await ref.read(authStateProvider.notifier).logOut();
+              },
+              child: const Text('LOGOUT'));
         }));
   }
 }
