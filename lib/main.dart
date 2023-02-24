@@ -4,10 +4,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagram_clone_course/state/auth/provider/auth_state_provider.dart';
 import 'package:instagram_clone_course/state/auth/provider/is_logged_in_provider.dart';
 import 'package:instagram_clone_course/state/providers/is_loading_provider.dart';
-import 'package:instagram_clone_course/views/components/animations/data_not_found_animation_view.dart';
-import 'package:instagram_clone_course/views/components/animations/empty_content_with_text_animation_view.dart';
 import 'package:instagram_clone_course/views/components/loading/loading_screen.dart';
 import 'package:instagram_clone_course/views/login/login_screen.dart';
+import 'package:instagram_clone_course/views/main/main_view.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -59,31 +58,12 @@ class App extends ConsumerWidget {
           );
           final isLoggedIn = ref.watch(isLoggedInProvider);
           if (isLoggedIn) {
-            return const HomePage();
+            return const MainView();
           } else {
             return const LoginScreen();
           }
         },
       ),
     );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('HomePage'),
-        ),
-        body: Consumer(builder: (_, ref, child) {
-          return TextButton(
-              onPressed: () async {
-                await ref.read(authStateProvider.notifier).logOut();
-              },
-              child: const Text('LOGOUT'));
-        }));
   }
 }

@@ -2,6 +2,10 @@ import 'package:flutter/foundation.dart';
 
 @immutable
 class Strings {
+  static const logout = "Logout";
+  static const cancel = "CANCEL";
+  static const areYouSureYouWantToLogoutfTheApp =
+      "Are you sure you want tot logout of the app?";
   static const appName = 'Instant-gram!';
   static const welcomeToAppName = 'Welcome to ${Strings.appName}';
   static const youHaveNoPosts =
