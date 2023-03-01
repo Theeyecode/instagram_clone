@@ -1,7 +1,6 @@
-
-
 import 'package:instagram_clone_course/state/image_upload/models/file_type.dart';
 
+// conversion of Enum to String
 extension CollectionName on FileType {
   String get collectionName {
     switch (this) {

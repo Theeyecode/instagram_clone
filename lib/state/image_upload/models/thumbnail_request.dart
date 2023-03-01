@@ -19,5 +19,5 @@ class ThumbnailRequest {
           fileType == other.fileType;
 
   @override
-  int get hashCode => Object.hashAll([runtimeType, file, fileType ]);
+  int get hashCode => Object.hashAll([runtimeType, file, fileType]);
 }

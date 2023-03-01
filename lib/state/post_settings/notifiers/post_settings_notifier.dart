@@ -13,5 +13,11 @@ class PostSettingsNotifier extends StateNotifier<Map<PostSetting, bool>> {
           ),
         );
 
-  void setPostSetting(PostSetting) {}
+  void setPostSetting(PostSetting postSetting, bool value) {
+    final existingValue = state[postSetting];
+    if (existingValue == null || existingValue == value) {
+      return;
+    }
+    state = Map.unmodifiable(Map.from(state)..[postSetting] = value);
+  }
 }
