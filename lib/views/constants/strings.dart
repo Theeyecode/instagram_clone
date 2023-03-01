@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 class Strings {
   static const logout = "Logout";
   static const cancel = "CANCEL";
+  static const delete = "DELETE";
   static const areYouSureYouWantToLogoutfTheApp =
       "Are you sure you want tot logout of the app?";
   static const appName = 'Instant-gram!';
@@ -39,5 +40,7 @@ class Strings {
   static const dontHaveAnAccount = "Don't have an account?\n";
   static const signUpOn = 'Sign up on ';
   static const orCreateAnAccountOn = ' or create an account on ';
+
+  static const areYouSureYouWantToDeleteThis = '  Are you sure you want to delete this?';
   const Strings._();
 }

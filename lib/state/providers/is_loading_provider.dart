@@ -5,5 +5,5 @@ import 'package:instagram_clone_course/state/image_upload/providers/image_upload
 final isLoadingProvider = Provider<bool>((ref) {
   final authState = ref.watch(authStateProvider);
   final isUploacingImage = ref.watch(imageUploadProvider);
-  return authState.isLoading || isUploacingImage;
+  return authState.isLoading || isUploacingImage ;
 });

@@ -1,4 +1,6 @@
 import 'package:flutter/foundation.dart' show immutable;
+import 'package:instagram_clone_course/views/components/dialogs/alert_dialog_model.dart';
+import 'package:instagram_clone_course/views/constants/strings.dart';
 
 @immutable
 class DeleteDialog extends AlertDialogModel<bool> {
@@ -9,7 +11,7 @@ class DeleteDialog extends AlertDialogModel<bool> {
           message:
               '${Strings.areYouSureYouWantToDeleteThis} $titleOfObjectToDelete?',
           buttons: const {
-            String.cancel: false,
+            Strings.cancel: false,
             Strings.delete: true,
           },
         );
