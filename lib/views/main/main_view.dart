@@ -34,9 +34,9 @@ class _MainViewState extends ConsumerState<MainView> {
                 FontAwesomeIcons.film,
               ),
               onPressed: () async {
-                final imageFile =
+                final videoFile =
                     await ImagePickerHelper.pickVideoFromGallery();
-                if (imageFile == null) {
+                if (videoFile == null) {
                   return;
                 }
                 ref.refresh(postSettingsProviders);
@@ -48,14 +48,14 @@ class _MainViewState extends ConsumerState<MainView> {
                     context,
                     MaterialPageRoute(
                         builder: (_) => CreateNewPostView(
-                            fileToPost: imageFile, fileType: FileType.image)));
+                            fileToPost: videoFile, fileType: FileType.video)));
               },
             ),
             IconButton(
               onPressed: () async {
-                final videoFile =
+                final imageFile =
                     await ImagePickerHelper.pickImageFromGallery();
-                if (videoFile == null) {
+                if (imageFile == null) {
                   return;
                 }
                 ref.invalidate(postSettingsProviders); // ref.refresh()
@@ -67,7 +67,7 @@ class _MainViewState extends ConsumerState<MainView> {
                     context,
                     MaterialPageRoute(
                         builder: (_) => CreateNewPostView(
-                            fileToPost: videoFile, fileType: FileType.video)));
+                            fileToPost: imageFile, fileType: FileType.image)));
               },
               icon: const Icon(
                 Icons.add_photo_alternate_outlined,
