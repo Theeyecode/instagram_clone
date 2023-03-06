@@ -20,7 +20,7 @@ final userInfoModelProvider =
           FirebaseFieldName.userId,
           isEqualTo: userId,
         )
-        .limit(1)
+        .limit(1)    //! To know what is going on there evertime
         .snapshots()
         .listen((snapshot) {
       if (snapshot.docs.isNotEmpty) {
