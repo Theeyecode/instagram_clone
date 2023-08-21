@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart' show immutable;
 import 'package:instagram_clone_course/state/constants/firebase_field_name.dart';
 import 'package:instagram_clone_course/state/posts/typdefs/user_id.dart';
 
-
 @immutable
 class UserInfoModel extends MapView<String, String?> {
   final UserId userId;
@@ -22,7 +21,7 @@ class UserInfoModel extends MapView<String, String?> {
             FirebaseFieldName.email: email,
           },
         );
-//accepts a Json 
+//accepts a Json
   UserInfoModel.fromJson(
     Map<String, dynamic> json, {
     required UserId userId,
